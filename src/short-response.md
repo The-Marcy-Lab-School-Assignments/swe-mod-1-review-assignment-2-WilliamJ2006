@@ -54,29 +54,11 @@ const students = [
 
 For each task below, identify which array method (forEach, filter, map, find, or reduce) you would use.
 
-1. You need to get an array containing only students who scored above 85.
-2. You need to find the student named "Destiny" and update their grade to 90.
-3. You need to calculate the average grade of all students.
-4. You need to create an array of strings in the format: "Maya: 92"
-
 ### Response 2
-
-1. `filter` array method because I need an array that fufills a certain condition and has a different length then the original.
-
-2. `find` array method, allows me to find a target object, I would assign the output to a varible and then do `variable.grade = 90`.
-
-3. `reduce` array method, allows me to take multiple numbers and return an output as one number, I would assign that to a variale and then divide the variable by the length of the array.
-
-4. `map` array method, I'll create a new array where for each student which is assigned to a variable it'll return
-   `${variable.name}: ${variable.grade}`.
 
 ---
 
 ## Prompt 3
-
-We should expect that the code below prints the array `[ 'A', 'B', 'C', 'D' ]` but an error is thrown when the third line of code is executed.
-
-Explain why this error occurs, how to fix it, and provide a suggestion for how to avoid this error in the future.
 
 ```js
 const letters = ["a", "b", "c", "d"];
@@ -89,10 +71,6 @@ console.log(upperCaseLetters);
 ```
 
 ### Response 3
-
-The error occurs because `capitalize()` is executed immediately instead of being passed as a callback to .map(). This causes `undefined.toUpperCase()`. The fix is to pass wrap it in an arrow function `(letter => capitalize(letter))` or just use `capitalize` without parenthesis.
-
-To avoid this error, it's key to remember that when a function is used inside a callback function, it will exectute the funtion immediately instead of for each element.
 
 ## Prompt 4
 
@@ -118,9 +96,3 @@ const grandTotal = orders.reduce((sum, order) => {
   - What gets returned?
 
 ### Response 4
-
-The `grandTotal` will equal to 135 after totaling every total value each object of `orders`.
-
-The `0` at the end is important as it ensures that the sum will start at `0` instead of the first `total` value, this prevents errors and inconsistent behavior in our code if something in the objects were to be changed.
-
-The value of `sum` is `0`, the value of `order` is each object of the `orders` array. The value of `order.total` is `45`, the first `total` of the first object. What gets returned is also `45` because `0 + 45 = 45`.
