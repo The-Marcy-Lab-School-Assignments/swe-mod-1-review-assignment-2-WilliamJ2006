@@ -27,8 +27,6 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-15 will be logged because `playlist2` is a shallow copy of `playlist 1`, any changes made to `playlist2` will effect the original because they share the same memory address.
-
 **Corrected Code:**
 
 ```js
