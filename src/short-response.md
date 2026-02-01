@@ -1,6 +1,7 @@
 # Short Responses
 
 For this short response assignment, aim to write a response with the following qualities (your instructor will give you feedback on these areas):
+
 - [] Addresses all parts of the prompt
 - [] Accurately uses relevant technical terminology
 - [] Is free of grammar and spelling mistakes (double check with grammarly!)
@@ -26,14 +27,14 @@ Part B: How would you modify the code so that reassigning `playlist2.songCount` 
 
 ### Response 1
 
-Your response...
+15 will be logged because `playlist2` is a shallow copy of `playlist 1`, any changes made to `playlist2` will effect the original because they share the same memory address.
 
 **Corrected Code:**
 
 ```js
 // fix this!
 const playlist1 = { name: "My Favorites", songCount: 10 };
-const playlist2 = playlist1;
+const playlist2 = { ...playlist1 };
 playlist2.songCount = 15;
 console.log(playlist1.songCount);
 ```
@@ -47,7 +48,7 @@ const students = [
   { name: "Maya", grade: 92, passed: true },
   { name: "Jamal", grade: 78, passed: true },
   { name: "Destiny", grade: 88, passed: true },
-  { name: "Marcus", grade: 95, passed: true }
+  { name: "Marcus", grade: 95, passed: true },
 ];
 ```
 
@@ -60,7 +61,14 @@ For each task below, identify which array method (forEach, filter, map, find, or
 
 ### Response 2
 
-Your response...
+1. `filter` array method because I need an array that fufills a certain condition and has a different length then the original.
+
+2. `find` array method, allows me to find a target object, I would assign the output to a varible and then do `variable.grade = 90`.
+
+3. `reduce` array method, allows me to take multiple numbers and return an output as one number, I would assign that to a variale and then divide the variable by the length of the array.
+
+4. `map` array method, I'll create a new array where for each student which is assigned to a variable it'll return
+   `${variable.name}: ${variable.grade}`.
 
 ---
 
@@ -71,7 +79,7 @@ We should expect that the code below prints the array `[ 'A', 'B', 'C', 'D' ]` b
 Explain why this error occurs, how to fix it, and provide a suggestion for how to avoid this error in the future.
 
 ```js
-const letters = ['a', 'b', 'c', 'd'];
+const letters = ["a", "b", "c", "d"];
 const capitalize = (str) => str.toUpperCase();
 
 const upperCaseLetters = letters.map(capitalize());
@@ -82,9 +90,9 @@ console.log(upperCaseLetters);
 
 ### Response 3
 
-Your response...
+The error occurs because `capitalize()` is executed immediately instead of being passed as a callback to .map(). This causes `undefined.toUpperCase()`. The fix is to pass wrap it in an arrow function `(letter => capitalize(letter))` or just use `capitalize` without parenthesis.
 
----
+To avoid this error, it's key to remember that when a function is used inside a callback function, it will exectute the funtion immediately instead of for each element.
 
 ## Prompt 4
 
@@ -94,7 +102,7 @@ Given this code:
 const orders = [
   { id: 1, total: 45 },
   { id: 2, total: 23 },
-  { id: 3, total: 67 }
+  { id: 3, total: 67 },
 ];
 
 const grandTotal = orders.reduce((sum, order) => {
@@ -105,10 +113,14 @@ const grandTotal = orders.reduce((sum, order) => {
 - Part A: What will `grandTotal` equal after this code runs?
 - Part B: Explain what the `0` at the end of the reduce method does. Why is it important?
 - Part C: Walk through what happens in the FIRST iteration of reduce:
-    - What is the value of sum?
-    - What is the value of order?
-    - What gets returned?
+  - What is the value of sum?
+  - What is the value of order?
+  - What gets returned?
 
 ### Response 4
 
-Your response...
+The `grandTotal` will equal to 135 after totaling every total value each object of `orders`.
+
+The `0` at the end is important as it ensures that the sum will start at `0` instead of the first `total` value, this prevents errors and inconsistent behavior in our code if something in the objects were to be changed.
+
+The value of `sum` is `0`, the value of `order` is each object of the `orders` array. The value of `order.total` is `45`, the first `total` of the first object. What gets returned is also `45` because `0 + 45 = 45`.
