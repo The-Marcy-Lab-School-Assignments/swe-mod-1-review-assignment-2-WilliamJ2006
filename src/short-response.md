@@ -91,6 +91,6 @@ const grandTotal = orders.reduce((sum, order) => {
 - Part C: Walk through what happens in the FIRST iteration of reduce:
   - What is the value of sum?
   - What is the value of order?
-  - What gets returned?
+  - What gets returned?d
 
 ### Response 4
